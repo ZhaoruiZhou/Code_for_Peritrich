@@ -1,9 +1,13 @@
 # -*- coding: UTF-8 -*-
 # by zzr 2023.11.9 
 # for calculate the enrichment of specific genes within gene clusters
+
+
+#################################******************###############################
 import pandas as pd
 from scipy.stats import hypergeom
 
+##################################################################################
 def read_file1(file1):
     df = pd.read_csv(file1, sep='\t', header=None, names=['Gene', 'Cluster'])
     return df
@@ -34,9 +38,10 @@ def compute_enrichment(df, subset_genes):
     result_df = result_df.sort_values(by='P_Value')
     return result_df
 
-
+############################################################################################
 file1 = "mapping_file.txt"  #The first column is the gene name, and the second column is the cluster number
 file2 = "gene_id.txt"     # gene id
+############################################################################################
 
 df = read_file1(file1)
 subset_genes = read_file2(file2)
